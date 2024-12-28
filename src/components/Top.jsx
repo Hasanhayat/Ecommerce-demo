@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Top = () => {
   return (
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg="dark" data-bs-theme="dark" className='shadow'>
     <Container>
       <Navbar.Brand as={Link} to={"/"}>Ecommerce Demo </Navbar.Brand>
       <Nav className="me-auto">

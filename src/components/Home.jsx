@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { useParams } from "react-router";
+import "./components.css"
 
 const Home = () => {
  const [posts , setPosts] = useState([])
@@ -22,16 +23,16 @@ axios.get(`https://dummyjson.com/products`)
 
      
   return (
-    <div className="container">
-      <Carousel fade>
-        <Carousel.Item>
-          {/* <ExampleCarouselImage text="First slide" /> */}
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
+    <div className="container bg-secondary shadow-lg">
+        
+        <Carousel fade >
+        {posts.map((ele,i)=>(
+
+        <Carousel.Item key={i}>
+        <img src={ele.images[0]} alt="" className="carousel-img d-block w-50 mx-auto "/>
         </Carousel.Item>
-      </Carousel>
+        ))}
+        </Carousel>
     </div>
   );
 };
