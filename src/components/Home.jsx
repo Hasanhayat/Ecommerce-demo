@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Carousel } from "react-bootstrap";
+import { useParams } from "react-router";
 
 const Home = () => {
 
-useEffect
+
 
      
   return (
