@@ -1,26 +1,22 @@
-import { useState } from 'react'
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Navbar } from 'react-bootstrap';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Top from "./components/Top";
+import { Navigate, Route, Routes } from "react-router";
+import Home from "./components/Home";
+import Products from "./components/Products";
 
 function App() {
-
   return (
-<div className="container">
-<Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+    <div className="app">
+      <Top />
 
-
-</div>
-  )
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="*" element={<Navigate to="/home" replace={true} />} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
