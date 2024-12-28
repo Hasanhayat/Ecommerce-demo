@@ -1,11 +1,23 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { useParams } from "react-router";
 
 const Home = () => {
+ const [posts , setPosts] = useState([])
 
 useEffect(()=>{
-
+axios.get(`https://dummyjson.com/products`)
+.then((res)=>{
+    setPosts(res.data.products)
+    console.log(res.data.products);
+    
+        
+})
+.catch((err)=>{
+    console.log(err);
+    
+})
 },[])
 
      
