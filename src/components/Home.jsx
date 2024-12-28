@@ -4,7 +4,9 @@ import { useParams } from "react-router";
 
 const Home = () => {
 
+useEffect(()=>{
 
+},[])
 
      
   return (
