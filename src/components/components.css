@@ -4,3 +4,10 @@
 .tra{
   backdrop-filter: blur(5px);
 }
+.card img{
+  height: 280px;
+}
+.card{
+  background: transparent;
+  backdrop-filter: blur(10px);
+}

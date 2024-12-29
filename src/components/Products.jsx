@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router";
 
 const Products = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(null);
 
   useEffect(() => {
     axios
@@ -15,11 +17,23 @@ const Products = () => {
         console.log(err);
       });
   }, []);
-
+  if (!posts) return <p>Loading...</p>;
   return (
-  <div className="tra container">
-
-  </div>
+    <div className="tra container rounded-5 mt-2 shadow-lg p-3 d-flex flex-wrap justify-content-center">
+      {posts.map((ele, i) => {
+        return (
+          <Link key={i} to={`/product/${ele.id}`} className="text-decoration-none">
+          <Card style={{ width: "18rem" }} key={i} className="card m-2 shadow-lg">
+            <Card.Img variant="top" src={ele.images[0]} />
+            <Card.Body>
+              <Card.Title>{ele.title}</Card.Title>
+              <Card.Text>{ele.description}</Card.Text>
+            </Card.Body>
+          </Card>
+          </Link>
+        );
+      })}
+    </div>
   );
 };
 

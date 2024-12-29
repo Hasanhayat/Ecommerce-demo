@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import "./components.css"
+import { Link } from "react-router";
 
 const Home = () => {
- const [posts , setPosts] = useState([])
+ const [posts , setPosts] = useState(null)
 
 useEffect(()=>{
 axios.get(`https://dummyjson.com/products`)
@@ -20,7 +21,7 @@ axios.get(`https://dummyjson.com/products`)
 })
 },[])
 
-     
+if (!posts) return <p>Loading...</p>;
   return (
     <div className="tra container rounded-5 my-2 shadow-lg">
         
@@ -28,7 +29,9 @@ axios.get(`https://dummyjson.com/products`)
         {posts.map((ele,i)=>(
 
         <Carousel.Item key={i}>
+          <Link to={`product/${ele.id}`}>
         <img src={ele.images[0]} alt="" className="carousel-img d-block w-50 mx-auto "/>
+        </Link>
         </Carousel.Item>
         ))}
         </Carousel>
