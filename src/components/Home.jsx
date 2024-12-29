@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
-import { useParams } from "react-router";
 import "./components.css"
 
 const Home = () => {
@@ -23,7 +22,7 @@ axios.get(`https://dummyjson.com/products`)
 
      
   return (
-    <div className="container bg-secondary shadow-lg">
+    <div className="tra container rounded-5 my-2 shadow-lg">
         
         <Carousel fade >
         {posts.map((ele,i)=>(

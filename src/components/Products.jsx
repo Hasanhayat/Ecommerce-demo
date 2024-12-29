@@ -1,9 +1,26 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const Products = () => {
-  return (
-    <div>Products</div>
-  )
-}
+  const [posts, setPosts] = useState([]);
 
-export default Products
+  useEffect(() => {
+    axios
+      .get(`https://dummyjson.com/products`)
+      .then((res) => {
+        setPosts(res.data.products);
+        console.log(res.data.products);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  return (
+  <div className="tra container">
+
+  </div>
+  );
+};
+
+export default Products;
