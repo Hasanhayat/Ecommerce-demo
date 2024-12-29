@@ -23,7 +23,7 @@ const Product = () => {
     },[])
     if (!post) return <p>Loading...</p>;
   return (
-    <div className="container mt-3 tra shadow">
+    <div className="container mt-3 tra shadow p-3 rounded-5">
     <h1>{post.title}</h1>
     <img src={post.images[0]} alt={post.title} style={{ width: "300px" }} />
     <p>{post.description}</p>
