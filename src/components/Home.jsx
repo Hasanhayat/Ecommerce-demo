@@ -25,7 +25,7 @@ const Home = () => {
         className="d-flex justify-content-center align-items-center"
         style={{ height: "80vh" }}
       >
-        <CircularProgress size={60} />
+        <CircularProgress size={70} />
       </div>
     );
   return (
